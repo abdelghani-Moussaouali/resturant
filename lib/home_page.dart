@@ -16,8 +16,8 @@ class HomePage extends StatelessWidget {
     FavouriteBar(),
     UserBar(),
   ];
-  final ValueNotifier<int> pageIndex = ValueNotifier(5);
-  final ValueNotifier<Widget> valueWidget = ValueNotifier(const UserBar());
+  final ValueNotifier<int> pageIndex = ValueNotifier(0);
+  final ValueNotifier<Widget> valueWidget = ValueNotifier(const HomeBar());
   void _onItemNavigationSelected(index) {
     pageIndex.value = index;
     valueWidget.value = pageWidget[index];

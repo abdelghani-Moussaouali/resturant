@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -26,7 +27,7 @@ class _NotificationBarState extends State<UserBar> {
                       Row(
                         children: [
                           UserProfile(
-                            image: 'assets/images/user.jpg',
+                            image: 'assets/images/abde.jpeg',
                             size: 110,
                           ),
                           SizedBox(
@@ -57,12 +58,69 @@ class _NotificationBarState extends State<UserBar> {
                         ],
                       ),
                       CustomTitleIcon(
-                        icon: FontAwesomeIcons.circleUser,
-                        title: '',
+                        icon: CupertinoIcons.phone,
+                        title: '0696467255',
                         color: null,
-                      )
+                      ),
+                      CustomTitleIcon(
+                        icon: CupertinoIcons.mail,
+                        title: 'moussaouali89@gmail.com',
+                        color: null,
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
                     ],
                   ))),
+          SliverToBoxAdapter(
+            child: Row(
+              children: [
+                SizedBox(
+                    height: 90,
+                    width: MediaQuery.sizeOf(context).width * .5 - 8,
+                    child: const Center(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          '\$1400',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 18, 54, 174),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Wallet',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ],
+                    ))),
+                Container(
+                  decoration: const BoxDecoration(
+                      border: Border(
+                          left: BorderSide(width: 0.5, color: Colors.grey))),
+                  height: 90,
+                  width: MediaQuery.sizeOf(context).width * .5 - 8,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        '12',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 18, 54, 174),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        'Orders',
+                        style: TextStyle(color: Colors.grey),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
           SliverFillRemaining(
             child: Column(
               children: [
@@ -116,6 +174,13 @@ class UserProfile extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade300,
+              blurRadius: 5.0,
+              spreadRadius: 2.0,
+            )
+          ],
           borderRadius: BorderRadius.circular(75),
           image: DecorationImage(
               image: AssetImage(
