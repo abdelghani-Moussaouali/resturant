@@ -1,46 +1,49 @@
-
-
 import 'package:go_router/go_router.dart';
+import 'package:resturantes/Features/auth/home_page_prin.dart';
+import 'package:resturantes/Features/auth/sign_up_second_page.dart';
 import 'package:resturantes/Features/home/presentation/view/widget/custom_item_card.dart';
-import 'package:resturantes/auth/log_in_page.dart';
-import 'package:resturantes/auth/sign_in_page.dart';
+import 'package:resturantes/Features/auth/log_in_page.dart';
+import 'package:resturantes/Features/auth/sign_up_page.dart';
 import 'package:resturantes/home_page.dart';
-import 'package:resturantes/first_page.dart';
 
 class AppRoute {
   static String kCustomItemCard = '/customItemCard';
   static String kHomePage = '/HomePage';
+  static String kHomePagePrin = '/kHomePagePrin';
   static String kNotificationBar = '/NotificationBar';
   static String kQrScanBar = '/kQrScanBar';
   static String kFavouriteBar = '/FavouriteBar';
   static String kLogInPage = '/LogInPage';
-  static String kSignInPage = '/SignInPage';
+  static String kSignUpSecondPage = '/SignUpSecondPage';
+
+  static String kSignUpPage = '/SignInPage';
   AppRoute();
   static GoRouter goRoute = GoRouter(
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) =>  LogInPage(),  // FirstPage
+        builder: (context, state) => const LogInPage(), // FirstPage
       ),
-      // GoRoute(
-      //   path: kLogInPage,
-      //   builder: (context, state) =>  LogInPage(),
-      // ),
       GoRoute(
-        path: kSignInPage,
-        builder: (context, state) => const SignInPage(),
+        path: kSignUpPage,
+        builder: (context, state) => const SignUpPage(),
+      ),
+      GoRoute(
+        path: kSignUpSecondPage,
+        builder: (context, state) => const SignUpSecondPage(),
       ),
       GoRoute(
         path: kHomePage,
         builder: (context, state) => HomePage(),
       ),
       GoRoute(
+        path: kHomePagePrin,
+        builder: (context, state) => const HomePagePrin(),
+      ),
+      GoRoute(
         path: kCustomItemCard,
-
         builder: (context, state) => const CustomProductDeatil(),
       ),
-      
-     
     ],
   );
 }
