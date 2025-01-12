@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:resturantes/constantes.dart';
 
 class CustomUpProductDetail extends StatelessWidget {
   const CustomUpProductDetail({
-    super.key,
+    super.key, required this.image,
   });
-
+final String image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,13 +13,13 @@ class CustomUpProductDetail extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.white,
-          image: const DecorationImage(
+          image:  DecorationImage(
+            fit: BoxFit.cover,
             scale: 1.9,
-            image: AssetImage(
-              kImageIphone14,
+            image: NetworkImage(
+              image,
             ),
-          )
-          ),
+          )),
     );
   }
 }

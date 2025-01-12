@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:resturantes/Features/auth/home_page_prin.dart';
+import 'package:resturantes/Features/auth/home_page_builder.dart';
+import 'package:resturantes/Features/auth/sign_up_page_builder.dart';
 import 'package:resturantes/Features/auth/sign_up_second_page.dart';
 import 'package:resturantes/Features/home/presentation/view/widget/custom_item_card.dart';
 import 'package:resturantes/Features/auth/log_in_page.dart';
@@ -15,6 +16,7 @@ class AppRoute {
   static String kFavouriteBar = '/FavouriteBar';
   static String kLogInPage = '/LogInPage';
   static String kSignUpSecondPage = '/SignUpSecondPage';
+  static String kSignUpPageBuilder = '/SignUpPageBuilder';
 
   static String kSignUpPage = '/SignInPage';
   AppRoute();
@@ -28,22 +30,26 @@ class AppRoute {
         path: kSignUpPage,
         builder: (context, state) => const SignUpPage(),
       ),
-      GoRoute(
-        path: kSignUpSecondPage,
-        builder: (context, state) => const SignUpSecondPage(),
-      ),
+      // GoRoute(
+      //   path: kSignUpSecondPage,
+      //   builder: (context, state) => const SignUpSecondPage(),
+      // ),
       GoRoute(
         path: kHomePage,
         builder: (context, state) => HomePage(),
       ),
       GoRoute(
         path: kHomePagePrin,
-        builder: (context, state) => const HomePagePrin(),
+        builder: (context, state) => const HomePageBuilder(),
       ),
       GoRoute(
-        path: kCustomItemCard,
-        builder: (context, state) => const CustomProductDeatil(),
+        path: kSignUpPageBuilder,
+        builder: (context, state) => const SignUpPageBuilder(),
       ),
+      // GoRoute(
+      //   path: kCustomItemCard,
+      //   builder: (context, state) => const CustomProductDeatil(),
+      // ),
     ],
   );
 }

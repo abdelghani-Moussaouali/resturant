@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class FeaturesTabBarView extends StatelessWidget {
@@ -8,7 +7,8 @@ class FeaturesTabBarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Text('comments',style: const TextStyle(
+      color: Colors.white
+    ),);
   }
 }
-

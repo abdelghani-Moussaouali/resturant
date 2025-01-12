@@ -1,24 +1,33 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:resturantes/Features/auth/presentation/manager/cubit/Login/SignUp/sign_up_cubit.dart';
+import 'package:resturantes/Features/auth/presentation/manager/cubit/Login/login_cubit.dart';
 import 'package:resturantes/constantes.dart';
+import 'package:resturantes/core/utils/app_route.dart';
 
-import 'package:resturantes/core/widget/my_button.dart';
+import 'package:resturantes/core/widget/custom_button.dart';
 
 class SignUpSecondPage extends StatefulWidget {
-  const SignUpSecondPage({super.key});
+  const SignUpSecondPage(
+      {super.key,
+      required this.username,
+      required this.email,
+      required this.password,
+      required this.passwordConf});
+  final String username;
+  final String email;
+  final String password;
+  final String passwordConf;
 
   @override
   State<SignUpSecondPage> createState() => _SignUpSecondPageState();
 }
 
 class _SignUpSecondPageState extends State<SignUpSecondPage> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final nameController = TextEditingController();
-  final passwordConfirmationController = TextEditingController();
-
   File? image;
   Future imagePicker() async {
     try {
@@ -28,7 +37,6 @@ class _SignUpSecondPageState extends State<SignUpSecondPage> {
 
       setState(() {
         this.image = imageTemporary;
-        print(image.path);
       });
     } on Exception catch (e) {
       print('Error:  $e');
@@ -75,7 +83,8 @@ class _SignUpSecondPageState extends State<SignUpSecondPage> {
                               spreadRadius: 0.5,
                               blurRadius: 5)
                         ],
-                        image: const DecorationImage(image: AssetImage(kImageuser)),
+                        image: const DecorationImage(
+                            image: AssetImage(kImageuser)),
                         borderRadius: BorderRadius.circular(90)),
                   ),
                 ],
@@ -93,7 +102,16 @@ class _SignUpSecondPageState extends State<SignUpSecondPage> {
                 borderRadius: 15,
                 // blurRadius: 0.0,
                 text: 'skip',
-                ontap: () async {},
+                ontap: () {
+                  BlocProvider.of<SignUpCubit>(context).fetchSignUp(
+                    name: widget.username,
+                    email: widget.email,
+                    password: widget.password,
+                    passwordConf: widget.passwordConf,
+                  );
+                  GoRouter.of(context)
+                      .pushReplacement(AppRoute.kSignUpPageBuilder);
+                },
                 color: Colors.white,
                 textColor: Colors.black,
                 // borderColor: Colors.black,

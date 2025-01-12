@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:resturantes/core/utils/app_styles.dart';
 
@@ -28,6 +26,4 @@ class CustomTitle extends StatelessWidget {
       ],
     );
   }
-
- 
 }

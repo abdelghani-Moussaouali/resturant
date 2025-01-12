@@ -1,12 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:resturantes/constantes.dart';
+
 class CustomAd extends StatelessWidget {
   const CustomAd({
-    super.key, 
+    super.key,
     required this.image,
   });
-final String image;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -42,7 +42,7 @@ final String image;
                     ),
                     const Spacer(),
                     const Text(
-                      'IPhone 14',
+                      'Pizza',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 22,
@@ -74,10 +74,10 @@ final String image;
           ),
         ),
         Image.asset(
-        image,
-          fit: BoxFit.cover,
+          image,
+          fit: BoxFit.contain,
           height: MediaQuery.sizeOf(context).height * 1 / 4.25,
-          width: MediaQuery.sizeOf(context).width * 0.6,
+          width: MediaQuery.sizeOf(context).width * 0.65,
         ),
       ],
     );

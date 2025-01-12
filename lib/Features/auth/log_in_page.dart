@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:resturantes/Features/auth/presentation/manager/cubit/login_cubit.dart';
+import 'package:resturantes/Features/auth/presentation/manager/cubit/Login/login_cubit.dart';
 import 'package:resturantes/constantes.dart';
 
 import 'package:resturantes/core/utils/app_route.dart';
+import 'package:resturantes/core/widget/custom_loading_buttom.dart';
+
 import 'package:resturantes/core/widget/custom_social_media_buttom.dart';
 import 'package:resturantes/core/widget/custom_text_field.dart';
-import 'package:resturantes/core/widget/my_button.dart';
+import 'package:resturantes/core/widget/custom_button.dart';
 
 class LogInPage extends StatefulWidget {
   static String id = 'LogiPage';
-  const LogInPage({super.key});
-
+  const LogInPage({super.key, this.isLoding = false, this.errMessage});
+  final bool isLoding;
+  final String? errMessage;
   @override
   State<LogInPage> createState() => _LogInPageState();
 }
@@ -21,7 +24,7 @@ class _LogInPageState extends State<LogInPage> {
   final emailController = TextEditingController();
   final passwordConroller = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  // void loginUserIn() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,7 @@ class _LogInPageState extends State<LogInPage> {
                 const SizedBox(
                   height: 25,
                 ),
-                Image.asset('assets/images/LOGO.png', height: 180),
+                Image.asset(kLogoPrincipale, height: 180),
                 const SizedBox(
                   height: 25,
                 ),
@@ -45,11 +48,15 @@ class _LogInPageState extends State<LogInPage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
-                Text(
-                  'please login to continue our app',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, color: Colors.grey[500]),
-                ),
+                widget.errMessage == null
+                    ? Text(
+                        'please login to continue our app',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16, color: Colors.grey[500]),
+                      )
+                    : CustomErrorMessage(
+                        message: widget.errMessage!,
+                      ),
                 const SizedBox(
                   height: 25,
                 ),
@@ -110,19 +117,26 @@ class _LogInPageState extends State<LogInPage> {
                 const SizedBox(
                   height: 25,
                 ),
-                CustomButton(
-                  text: 'Log in',
-                  ontap: () {
-                    if (formKey.currentState!.validate() == true) {
-                      formKey.currentState!.save();
-                      BlocProvider.of<LoginCubit>(context).fetchLoginMessage(
-                          email: emailController.text,
-                          password: passwordConroller.text);
-                      GoRouter.of(context).push(AppRoute.kHomePagePrin);
-                    }
-                  },
-                  color: kPrmiaryColor,
-                ),
+                widget.isLoding == false
+                    ? CustomButton(
+                        text: 'Log in',
+                        ontap: () {
+                          if (formKey.currentState!.validate() == true) {
+                            formKey.currentState!.save();
+                            BlocProvider.of<LoginCubit>(context)
+                                .fetchLoginMessage(
+                                    email: emailController.text,
+                                    password: passwordConroller.text);
+                            GoRouter.of(context)
+                                .pushReplacement(AppRoute.kHomePagePrin);
+                          }
+                          formKey.currentState!.deactivate();
+                        },
+                        color: kPrmiaryColor,
+                      )
+                    : const CustomLoadingButton(
+                        color: kPrmiaryColor,
+                      ),
                 const SizedBox(
                   height: 17,
                 ),
@@ -194,5 +208,23 @@ class _LogInPageState extends State<LogInPage> {
             ),
           ),
         ));
+  }
+}
+
+class CustomErrorMessage extends StatelessWidget {
+  const CustomErrorMessage({
+    super.key,
+    required this.message,
+  });
+
+  final String message;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      message,
+      textAlign: TextAlign.center,
+      style: const TextStyle(fontSize: 16, color: Colors.red),
+    );
   }
 }

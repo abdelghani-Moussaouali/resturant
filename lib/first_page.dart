@@ -10,20 +10,21 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
-
-@override
+  @override
   void initState() {
     GoRouter.of(context).push(AppRoute.kLogInPage);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Scaffold(
-        body: Center(child: Container(
-          height: MediaQuery.sizeOf(context).height,
-          color: const Color.fromARGB(255, 228, 182, 44),
-          child: Image.asset('assets/images/LOGO.png'))),
+        body: Center(
+            child: Container(
+                height: MediaQuery.sizeOf(context).height,
+                color: const Color.fromARGB(255, 228, 182, 44),
+                child: Image.asset('assets/images/LOGO.png'))),
       ),
     );
   }

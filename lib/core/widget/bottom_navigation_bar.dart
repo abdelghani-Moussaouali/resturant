@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -42,24 +41,19 @@ class _BottomNavigationbarState extends State<BottomNavigationbar> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             NavigationBarItem(
-             
               icon: CupertinoIcons.home,
               isSelected: (selecteIndex == 0),
               index: 0,
               ontap: (int index) => handelItemSelected(index),
             ),
             NavigationBarItem(
-              icon: (selecteIndex ==2)
-                  ? Icons.notifications_none
-                  : Icons.notifications,
+              icon: FontAwesomeIcons.store,
               isSelected: (selecteIndex == 1),
               index: 1,
               ontap: (index) => handelItemSelected(index),
             ),
             NavigationBarItem(
-              icon: (selecteIndex ==2)
-                  ? FontAwesomeIcons.qrcode
-                  : FontAwesomeIcons.qrcode,
+              icon: FontAwesomeIcons.circlePlus,
               isSelected: (selecteIndex == 2),
               index: 2,
               ontap: (int index) => handelItemSelected(index),

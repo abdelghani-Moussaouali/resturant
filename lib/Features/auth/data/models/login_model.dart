@@ -8,7 +8,7 @@ class LoginModel {
   });
 
   factory LoginModel.fromJson(Map<String, dynamic> json) {
-  return LoginModel(
+    return LoginModel(
       message: json['message'],
       token: json['token'],
     );

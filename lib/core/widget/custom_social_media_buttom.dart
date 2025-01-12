@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomSocialMediaButtom extends StatelessWidget {
-  const CustomSocialMediaButtom({super.key, required this.path, required this.ontap});
+  const CustomSocialMediaButtom(
+      {super.key, required this.path, required this.ontap});
   final String path;
   final VoidCallback ontap;
 

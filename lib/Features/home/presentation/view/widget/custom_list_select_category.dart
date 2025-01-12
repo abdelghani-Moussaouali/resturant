@@ -1,13 +1,13 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:resturantes/Features/home/presentation/view/widget/custom_select_category.dart';
+import 'package:resturantes/Features/store/presentation/manager/store_cubit/store_cubit.dart';
 
 class CustomListSelectCategory extends StatefulWidget {
   const CustomListSelectCategory({
     super.key,
   });
-
   @override
   State<CustomListSelectCategory> createState() =>
       _CustomListSelectCategoryState();
@@ -16,20 +16,20 @@ class CustomListSelectCategory extends StatefulWidget {
 class _CustomListSelectCategoryState extends State<CustomListSelectCategory> {
   List<dynamic> items = [
     {
-      'title': 'phone',
-      'icon': FontAwesomeIcons.mobileScreen,
+      'title': 'pizza',
+      'icon': FontAwesomeIcons.pizzaSlice,
     },
     {
-      'title': 'laptop',
-      'icon': FontAwesomeIcons.laptop,
+      'title': 'resturant',
+      'icon': FontAwesomeIcons.utensils,
     },
     {
-      'title': 'TV',
-      'icon': FontAwesomeIcons.tv,
+      'title': 'desserts',
+      'icon': FontAwesomeIcons.iceCream,
     },
     {
-      'title': 'headphone',
-      'icon': FontAwesomeIcons.headphones,
+      'title': 'cafeteria',
+      'icon': FontAwesomeIcons.mugSaucer,
     },
   ];
 
@@ -51,12 +51,11 @@ class _CustomListSelectCategoryState extends State<CustomListSelectCategory> {
             return CustomSelectCategory(
               icon: items[index]['icon'],
               name: items[index]['title'],
-              index: index, //3
-
+              index: index,
               ontap: (int value) {
-         
                 handelSelect(value);
-         
+                BlocProvider.of<StoreCubit>(context)
+                    .fetchCategoryItem(category: items[index]['title']);
               },
               isSelected: selectIndex == index,
             );

@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:resturantes/core/widget/custom_like_button.dart';
+import 'package:resturantes/core/widget/custom_stars_gold.dart';
 
 class CustomProductInfo extends StatelessWidget {
   const CustomProductInfo({
-    super.key,
+    super.key, required this.name,
   });
-
+final String name;
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 12.0),
+    return  Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -18,53 +19,26 @@ class CustomProductInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'IPhone 13',
-                style: TextStyle(color: Colors.white, fontSize: 24),
+                name,
+                style: const TextStyle(color: Colors.white, fontSize: 24),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 08.0,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 120,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(
-                      CupertinoIcons.star_fill,
-                      color: Colors.orangeAccent,
-                      size: 18,
-                    ),
-                    Icon(
-                      CupertinoIcons.star_fill,
-                      color: Colors.orangeAccent,
-                      size: 18,
-                    ),
-                    Icon(
-                      CupertinoIcons.star_fill,
-                      color: Colors.orangeAccent,
-                      size: 18,
-                    ),
-                    Icon(
-                      CupertinoIcons.star_fill,
-                      color: Colors.orangeAccent,
-                      size: 18,
-                    ),
-                    Icon(
-                      CupertinoIcons.star_fill,
-                      color: Colors.orangeAccent,
-                      size: 18,
-                    )
-                  ],
+                child: CustomStarsGold(
+                itemCount: 5,
                 ),
               )
             ],
           ),
-        CustomLikeButton(
-          backgroundColor: Colors.white,
-        )
+          const CustomLikeButton(
+            backgroundColor: Colors.white,
+          )
         ],
       ),
     );
   }
 }
+

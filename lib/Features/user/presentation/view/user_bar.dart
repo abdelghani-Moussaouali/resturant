@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:resturantes/constantes.dart';
 
 class UserBar extends StatefulWidget {
   const UserBar({
@@ -27,7 +28,7 @@ class _NotificationBarState extends State<UserBar> {
                       Row(
                         children: [
                           UserProfile(
-                            image: 'assets/images/abde.jpeg',
+                            image: kImageMe,
                             size: 110,
                           ),
                           SizedBox(
@@ -164,21 +165,25 @@ class UserProfile extends StatelessWidget {
     super.key,
     required this.image,
     this.size = 90,
+    this.blurRadius = 5.0,
+    this.spreadRadius = 2.0,
   });
   final String image;
   final double size;
+  final double blurRadius;
+  final double spreadRadius;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+      // margin: const EdgeInsets.symmetric(horizontal: 8.0),
       width: size,
       height: size,
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
               color: Colors.grey.shade300,
-              blurRadius: 5.0,
-              spreadRadius: 2.0,
+              blurRadius: blurRadius,
+              spreadRadius: spreadRadius,
             )
           ],
           borderRadius: BorderRadius.circular(75),
