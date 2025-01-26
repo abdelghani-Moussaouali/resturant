@@ -1,8 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:resturantes/Features/auth/home_page_builder.dart';
 import 'package:resturantes/Features/auth/sign_up_page_builder.dart';
-import 'package:resturantes/Features/auth/sign_up_second_page.dart';
-import 'package:resturantes/Features/home/presentation/view/widget/custom_item_card.dart';
 import 'package:resturantes/Features/auth/log_in_page.dart';
 import 'package:resturantes/Features/auth/sign_up_page.dart';
 import 'package:resturantes/home_page.dart';

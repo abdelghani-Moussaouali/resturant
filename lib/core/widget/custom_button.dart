@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resturantes/constantes.dart';
+import 'package:resturantes/core/utils/app_styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -43,14 +44,8 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(borderRadius),
           ),
           child: Center(
-            child: Text(
-              text,
-              style: TextStyle(
-                color: textColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-            ),
+            child: Text(text,
+                style: AppStyles.titleWhiteBoldColorStyle18(color: textColor)),
           )),
     );
   }

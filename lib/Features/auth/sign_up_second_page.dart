@@ -8,6 +8,7 @@ import 'package:resturantes/Features/auth/presentation/manager/cubit/Login/SignU
 import 'package:resturantes/Features/auth/presentation/manager/cubit/Login/login_cubit.dart';
 import 'package:resturantes/constantes.dart';
 import 'package:resturantes/core/utils/app_route.dart';
+import 'package:resturantes/core/utils/app_styles.dart';
 
 import 'package:resturantes/core/widget/custom_button.dart';
 
@@ -58,13 +59,11 @@ class _SignUpSecondPageState extends State<SignUpSecondPage> {
                     'add your profile image',
                     style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
                   )),
-              const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25),
+               Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Text(
                     'Please upload an image to set as your profile picture. This helps personalize your account!',
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
+                    style: AppStyles.textStyle18(),
                   )),
               const SizedBox(
                 height: 25,

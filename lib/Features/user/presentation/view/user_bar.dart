@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:resturantes/constantes.dart';
+import 'package:resturantes/core/utils/app_styles.dart';
 
 class UserBar extends StatefulWidget {
   const UserBar({
@@ -24,7 +25,9 @@ class _NotificationBarState extends State<UserBar> {
               child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
+                 
                     children: [
+
                       Row(
                         children: [
                           UserProfile(
@@ -79,20 +82,14 @@ class _NotificationBarState extends State<UserBar> {
                 SizedBox(
                     height: 90,
                     width: MediaQuery.sizeOf(context).width * .5 - 8,
-                    child: const Center(
+                    child: Center(
                         child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text(
-                          '\$1400',
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 18, 54, 174),
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
+                        Text('\$1400', style: AppStyles.priceStyle20()),
+                        const Text(
                           'Wallet',
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(color: kgreyColor),
                         ),
                       ],
                     ))),
@@ -108,13 +105,13 @@ class _NotificationBarState extends State<UserBar> {
                       Text(
                         '12',
                         style: TextStyle(
-                            color: Color.fromARGB(255, 18, 54, 174),
+                            color: kblueColor,
                             fontSize: 20,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
                         'Orders',
-                        style: TextStyle(color: Colors.grey),
+                        style: TextStyle(color: kgreyColor),
                       )
                     ],
                   ),

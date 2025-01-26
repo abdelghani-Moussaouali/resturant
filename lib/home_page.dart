@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:resturantes/Features/Add/presentation/view/add_page_bar.dart';
 import 'package:resturantes/Features/SacnBar/presentation/view/qr_code_bar.dart';
 import 'package:resturantes/Features/auth/presentation/manager/cubit/Login/login_cubit.dart';
 import 'package:resturantes/Features/favourite/presentation/view/favourite_bar.dart';
@@ -59,38 +60,3 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class CustomStarsGold extends StatelessWidget {
-  const CustomStarsGold({
-    super.key,
-    this.itemCount = 0,
-  });
-  final int? itemCount;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      height: 30,
-      width: MediaQuery.sizeOf(context).width * .285,
-      child: ListView.builder(
-        itemCount: itemCount,
-        scrollDirection: Axis.horizontal,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) {
-          return const Icon(
-            Icons.star,
-            color: Colors.amber,
-          );
-        },
-      ),
-    );
-  }
-}
-
-class AddPageBar extends StatelessWidget {
-  const AddPageBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text('add page bar');
-  }
-}

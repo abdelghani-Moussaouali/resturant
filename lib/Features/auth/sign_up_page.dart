@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:resturantes/Features/auth/sign_up_second_page.dart';
 import 'package:resturantes/constantes.dart';
-import 'package:resturantes/core/utils/app_route.dart';
+import 'package:resturantes/core/utils/app_styles.dart';
 
 import 'package:resturantes/core/widget/custom_text_field.dart';
 
@@ -32,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               children: [
-                Image.asset('assets/images/LOGO.png', height: 180),
+                Image.asset(kLogoPrincipale, height: 180),
                 const Text(
                   'Create Account',
                   textAlign: TextAlign.center,
@@ -41,7 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 Text(
                   'Fill your information below ',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, color: Colors.grey[500]),
+                  style: TextStyle(fontSize: 16, color:kgrey7Color),
                 ),
                 const SizedBox(
                   height: 25,
@@ -144,13 +143,10 @@ class _SignUpPageState extends State<SignUpPage> {
                               borderRadius: BorderRadius.circular(10)),
                           height: 60,
                           width: 100,
-                          child: const Center(
+                          child:  Center(
                             child: Text(
                               'Next',
-                              style: TextStyle(
-                                  color: Colors.amber,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
+                              style: AppStyles.nextTextStyle(color: kBottomTextColor),
                             ),
                           ),
                         ),

@@ -44,7 +44,7 @@ class _StorePageBarBodyState extends State<StorePageBarBody> {
             title: CustomTextFormField(),
           ),
           const SliverToBoxAdapter(
-            child: const Column(
+            child: Column(
               children: [
                 SizedBox(
                   height: 22,

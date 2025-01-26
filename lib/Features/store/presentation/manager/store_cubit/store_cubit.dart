@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:resturantes/Features/auth/data/repos/auth_repos/auth_repos_impl.dart';
 import 'package:resturantes/Features/store/data/repos/store_repos_impl.dart';
 
 part 'store_state.dart';

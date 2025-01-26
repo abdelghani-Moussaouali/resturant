@@ -5,6 +5,7 @@ import 'package:resturantes/Features/auth/presentation/manager/cubit/Login/login
 import 'package:resturantes/constantes.dart';
 
 import 'package:resturantes/core/utils/app_route.dart';
+import 'package:resturantes/core/widget/custom_error_message.dart';
 import 'package:resturantes/core/widget/custom_loading_buttom.dart';
 
 import 'package:resturantes/core/widget/custom_social_media_buttom.dart';
@@ -167,20 +168,20 @@ class _LogInPageState extends State<LogInPage> {
                       Expanded(
                         child: Divider(
                           thickness: 0.5,
-                          color: Colors.grey[600],
+                          color: kDividerColor,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
                           'Or continue with',
-                          style: TextStyle(color: Colors.grey[700]),
+                          style: TextStyle(color:kgrey7Color),
                         ),
                       ),
                       Expanded(
                         child: Divider(
                           thickness: 0.5,
-                          color: Colors.grey[600],
+                          color: kDividerColor,
                         ),
                       ),
                     ],
@@ -193,13 +194,13 @@ class _LogInPageState extends State<LogInPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomSocialMediaButtom(
-                      path: 'assets/images/facebook.png',
+                      path: kFacebook,
                       ontap: () {
                         // Navigator.popAndPushNamed(context, 'www.google.com');
                       },
                     ),
                     CustomSocialMediaButtom(
-                      path: 'assets/images/google.png',
+                      path: kGoogle,
                       ontap: () {},
                     ),
                   ],
@@ -211,20 +212,3 @@ class _LogInPageState extends State<LogInPage> {
   }
 }
 
-class CustomErrorMessage extends StatelessWidget {
-  const CustomErrorMessage({
-    super.key,
-    required this.message,
-  });
-
-  final String message;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      message,
-      textAlign: TextAlign.center,
-      style: const TextStyle(fontSize: 16, color: Colors.red),
-    );
-  }
-}
